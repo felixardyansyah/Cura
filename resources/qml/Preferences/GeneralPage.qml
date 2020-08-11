@@ -90,7 +90,7 @@ UM.PreferencesPage
         UM.Preferences.resetPreference("view/show_overhang");
         showOverhangCheckbox.checked = boolCheck(UM.Preferences.getValue("view/show_overhang"))
         UM.Preferences.resetPreference("view/show_xray_warning");
-        showXrayErrorCheckbox.checked = boolCheck(UM.Preferences.getValue("view/show_warning"))
+        showXrayErrorCheckbox.checked = boolCheck(UM.Preferences.getValue("view/show_xray_warning"))
         UM.Preferences.resetPreference("view/center_on_select");
         centerOnSelectCheckbox.checked = boolCheck(UM.Preferences.getValue("view/center_on_select"))
         UM.Preferences.resetPreference("view/invert_zoom");
@@ -336,7 +336,7 @@ UM.PreferencesPage
                     id: showOverhangCheckbox
 
                     checked: boolCheck(UM.Preferences.getValue("view/show_overhang"))
-                    onClicked: UM.Preferences.setValue("view/show_overhang",  checked)
+                    onClicked: UM.Preferences.setValue("view/show_overhang", checked)
 
                     text: catalog.i18nc("@option:check", "Display overhang");
                 }
@@ -409,7 +409,7 @@ UM.PreferencesPage
                     text: catalog.i18nc("@action:button", "Zoom toward mouse direction")
                     checked: boolCheck(UM.Preferences.getValue("view/zoom_to_mouse")) && zoomToMouseCheckbox.enabled
                     onClicked: UM.Preferences.setValue("view/zoom_to_mouse", checked)
-                    enabled: UM.Preferences.getValue("general/camera_perspective_mode") !== "orthogonal"
+                    enabled: UM.Preferences.getValue("general/camera_perspective_mode") !== "orthographic"
                 }
 
                 //Because there is no signal for individual preferences, we need to manually link to the onPreferenceChanged signal.
